@@ -126,10 +126,12 @@ select::-ms-expand {
 }
 
 .hualuo-header{
-
+    display: box;
+    display: -webkit-box;
+    display: -moz-box;
 }
 .hualuo-header-1{
-	margin: 0 60px;
+	margin: 0 20px;
 }
 .hualuo-header-1 dt{
 	line-height: 60px;
@@ -143,7 +145,6 @@ select::-ms-expand {
 .hualuo-left{
 	position: absolute;
 	left: 240px;
-	top: 160px;
 	right: 20px;
 	height: 100%;
 }
@@ -186,11 +187,26 @@ select::-ms-expand {
 }
 .hualuo-right span{
 	padding: 0 15px;
+	margin-top: 25px;
 }
 .hualuo-left-3{
 	
 }
+.red{
+	color: red
+}
+.red:hover{
+	color: blue
+}
+.hualuo-xiaobai{
+	margin-top: 20px;
+}
+.border-bottom:hover{
+	border-bottom: 1px solid #999;
+}
 </style>
+<link rel="stylesheet" href="css/global.css" />
+    <script src="js/jquery-3.1.1.min.js"></script>
 <body>
 	<div class="hualuo-header">
 	    <div class="hualuo-header-1">
@@ -202,7 +218,9 @@ select::-ms-expand {
 	    </div>
 
 
-	    <div>
+	    <div  style="width:200px;margin:10px auto;">
+	    <div id="hoverclock">
+        </div>
 	    </div>
 	</div>
 
@@ -217,6 +235,15 @@ select::-ms-expand {
 	        <div class="hualuo-left-2">
 	            <span>出入前端</span>
 	            <span>小白之路</span>
+	            <ul class="hualuo-xiaobai">
+	                <li>这是我完成的第一个作品，简简单单。所以还是说说第一个作品得到的收获吧，完成这个静态页面花了一个礼拜的时间虽然对于现在来说是非常简单的。可是当时并不了解自适应是什么，所以一头雾水。终于在某人的帮助下，了解到了flexible.js，解决了困扰我的移动端自适应的问题。<a class="red" href="http://caibaojian.com/flexible-js.html">点击这里有惊喜</a>
+	                </li>
+	                <li></li>
+	                <li></li>
+	                <li></li>
+	                <li></li>
+	                <li></li>
+	            </ul>
 	            <span>进阶之路</span>
 	            <ul class="hualuo-left-3">
 	            	<li>策划人&nbsp;：花落</li>
@@ -250,7 +277,7 @@ select::-ms-expand {
 
 	            <span>最新笔记</span>
 	            <ul>
-	        	    <li><a href="hualuo/clip-path.html" target="view_window">css:clip-path的用处</a></li>
+	        	    <li><a class="border-bottom" href="hualuo/clip-path.html" target="view_window">css:clip-path的用处</a></li>
 	        	    <li></li>
 	        	    <li></li>
 	        	    <li></li>
@@ -283,5 +310,21 @@ select::-ms-expand {
 	        </div>
 	    </div>
 	</div>
+	 <script src="js/clock.js"></script>
+    <script>
+        $("#hoverclock").hoverclock({
+            "h_width":200,
+            "h_height":200,
+            //"h_hourNumSize": "80",
+            // "h_hourNumRadii": "200",
+            // "h_hourNumShow": false,
+            // "h_minuteNumShow":false,
+            "h_hourNumColor": "deeppink",
+            "h_backColor": "yellow",
+            // "h_borderColor": "gold",
+            //"h_frontColor":"red",
+            "h_linkText": "HoverClock"
+        });
+    </script>
 </body>
 </html>
