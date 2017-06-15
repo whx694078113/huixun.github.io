@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<style>
+
 html, body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
     margin: 0;
     padding: 0;
@@ -19,7 +13,6 @@ html{
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
     height: 100%;
-    background: #e9f1f8;
 }
 
 
@@ -124,7 +117,9 @@ select {
 select::-ms-expand {
     display: none;
 }
-
+.bg-c{
+    background: #e9f1f8;
+}
 
 
 

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="bg-c">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>花落的个人网站</title>
 </head>
 <style>
 html, body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
@@ -215,6 +215,12 @@ select::-ms-expand {
 .border-bottom:hover{
 	border-bottom: 1px solid #999;
 }
+.center{
+	text-align: center;
+}
+.advanced-road{
+	margin-top: 20px;
+}
 </style>
 <link rel="stylesheet" href="css/global.css" />
     <script src="js/jquery-3.1.1.min.js"></script>
@@ -252,14 +258,22 @@ select::-ms-expand {
 	                    </li>
 	                    <li>&nbsp;&nbsp;也了解了Swiper,如需下载Swiper.js，<a class="red" href="http://www.swiper.com.cn/download">请点击这里</a>。效果就是移动端的滑动效果，如需了解请参阅<a class="red" href="http://www.swiper.com.cn">http://www.swiper.com.cn</a></li>
 	                    <li>页面总体还是比较简单的，也就一个滑动的js和自适应代码。然后css就是伪类的运用了。这是我的第一个个作品。哈哈<a href="hualuo/weixin.html">惊喜哦</a></li>
-	                    <li></li>
-	                    <li></li>
-	                    <li></li>
 	                </ul>
 	                <span class="hualuo-xiaobai-2"></span>
 	            </div>
 	           
 	            <span class="hualuo-span">进阶之路</span>
+	            <ul class="advanced-road">
+	                <li class="center">vue之路</li>
+	                <li>Vue.js是集中在MVVM模式的ViewModel层，它是连接视图和数据绑定模型通过两种方式。实际的DOM操作和输出格式被抽象的方式到指令和过滤器。</li>
+	                <li></li>
+	            </ul>
+
+	            <span class="hualuo-span">工作中的总结</span>
+	            <ul>
+	            	<li></li>
+	            </ul>
+
 	            <ul class="hualuo-left-3">
 	            	<li>策划人&nbsp;：花落</li>
 	            	<li>网名&nbsp;:花落落花</li>
@@ -293,7 +307,7 @@ select::-ms-expand {
 	            <span>最新笔记</span>
 	            <ul>
 	        	    <li><a class="border-bottom" href="hualuo/clip-path.html" target="view_window">css:clip-path的用处</a></li>
-	        	    <li></li>
+	        	    <li><a class="border-bottom" href="">css:border的各种属性</a></li>
 	        	    <li></li>
 	        	    <li></li>
 	        	    <li></li>
@@ -301,7 +315,10 @@ select::-ms-expand {
 
 	            <span>随笔纪录</span>
 	            <ul>
-	        	    <li></li>
+	        	    <li>表单验证
+	        	        <a href="hualuo/validate.html" target="view_window" class="border-bottom">一</a>&nbsp;&nbsp;
+	        	        <a href="hualuo/validate-1.html" target="view_window" class="border-bottom">二</a>
+	        	    </li>
 	        	    <li></li>
 	        	    <li></li>
 	        	    <li></li>
@@ -311,7 +328,7 @@ select::-ms-expand {
 
 	            <span>随笔档案</span>
 	            <ul>
-	        	    <li></li>
+	        	    <li><a class="border-bottom" href="hualuo/essay-record.html" target="view_window">2017年6月</a></li>
 	        	    <li></li>
 	        	    <li></li>
 	        	    <li></li>
@@ -326,6 +343,7 @@ select::-ms-expand {
 	    </div>
 	</div>
 	 <script src="js/clock.js"></script>
+	 <script src="js/vue.min.js"></script>
     <script>
         $("#hoverclock").hoverclock({
             "h_width":200,

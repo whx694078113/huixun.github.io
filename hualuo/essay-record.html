@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<title>随笔纪录</title>
+</head>
+<style>
+.essay-record{
+	margin: 10px 20px;
+}
+.essay-record ul{
+	margin-top: 10px;
+	color: #999;
+}
+.essay-record-1 li:nth-child(even){
+     background: #eee;
+}
+.essay-record-2{
+	margin-top: 20px;
+	color: #666;
+}
+</style>
+<body>
+	<div class="essay-record">
+	    <ul class="essay-record-1">
+	    	<li>function compare(a,b){</li>
+	    	<li>&nbsp;&nbsp;if(a < b){</li>
+	    	<li>&nbsp;&nbsp;&nbsp;&nbsp;console.log("A is less than B");</li>
+	    	<li>&nbsp;&nbsp;} else if(a > b){</li>
+	    	<li>&nbsp;&nbsp;&nbsp;&nbsp;console.log("A is greater than B");</li>
+	    	<li>&nbsp;&nbsp;} else {</li>
+	    	<li>&nbsp;&nbsp;console.log("A is equal to B");</li>
+	    	<li>&nbsp;&nbsp;}</li>
+	    	<li>}</li>
+	    	<li>var f = new compare(3,4);</li>
+	    	<li> console.log(f)//A is less than B</li>
+	    </ul>
+
+	    <p class="essay-record-2">var定义的是全局变量当函数执行完毕后 变量会被销毁</p>
+        <ul class="essay-record-1">
+         	<li>function test(){</li>
+         	<li>&nbsp;&nbsp;var message = "hi";</li>
+         	<li>}</li>
+         	<li>test();</li>
+         	<li>console.log(message)//报错</li>
+         </ul> 
+
+        <p class="essay-record-2">下面的就能正常运行</p>
+        <ul class="essay-record-1">
+        	<li>function test1(){</li>
+        	<li>&nbsp;&nbsp;var message1 = "hi";</li>
+        	<li>&nbsp;&nbsp;console.log(message1) //hi</li>
+        	<li>}</li>
+        	<li>test1();</li>
+
+        	<li>function test2(){</li>
+        	<li>&nbsp;&nbsp;message2 = "hi";</li>
+        	<li>}</li>
+        	<li>test2();</li>
+        	<li>console.log(message2) //hi</li>
+        </ul>
+
+        <p class="essay-record-2">字符串类型</p>
+        <ul class="essay-record-1">
+        	<li>var message3 = "some string";</li>
+        	<li>console.log(typeof message3); // string</li>
+        	<li>console.log(typeof(message3)); //string</li>
+        	<li>console.log(typeof 95) //number</li>
+        </ul>
+         
+
+        <ul class="essay-record-1">
+        	<li>var message4;</li>
+        	<li>console.log(message4) //undefined</li>
+        	<li>console.log(mes) //met is not defined</li>
+        </ul>
+
+        <ul class="essay-record-1">
+        	<li>var car = null;</li>
+        	<li>console.log(typeof car)//object</li>
+        </ul>
+
+        <p class="essay-record-2">数值转换 parseInt 遇到空字符串转化为NaN 如果第一个是字符串 将会显示到非空字符串结束 小数点并不是有效地数字字符</p>
+        <ul class="essay-record-1">
+        	<li>var num1 = parseInt('');</li>
+        	<li>console.log(num1) //Nan</li>
+        	<li>var num2 = parseInt('123sss');</li>
+        	<li>console.log(num2) //123</li>
+        	<li>var num3 = parseInt('22.3');</li>
+        	<li>console.log(num3) //22</li>
+        	<li>var num4 = parseInt("70",8);</li>
+        	<li>console.log(num4) //56</li>
+        	<li>var num5 = parseInt("70",10);</li>
+        	<li>console.log(num5) //70</li>
+        	<li>var num6 = parseInt("0xf");</li>
+        	<li>console.log(num6) //15</li>
+        </ul>
+
+        <p class="essay-record-2">parseFloat 没有第二个参数指定基数的语法所以16进制格式的字符串会转换成0</p>
+        <ul class="essay-record-1">
+        	<li>var num1 = parseFloat("0xf");</li>
+        	<li>console.log(num1)//0</li>
+        	<li>var num2 = parseFloat("22.3");</li>
+        	<li>console.log(num2)//22.3</li>
+        </ul>
+        
+        <p class="essay-record-2">String获取属性值</p>
+        <ul class="essay-record-1">
+        	<li>var value1 = 10;</li>
+        	<li>var value2 = true;</li>
+        	<li>var value3 = null;</li>
+        	<li>var value4;</li>
+        	<li>var value5 =[1,2,3,4];</li>
+        	<li>console.log(String(value1)) //10</li>
+        	<li>console.log(String(value2)) //true</li>
+        	<li>console.log(String(value3)) //null</li>
+        	<li>console.log(String(value4)) //undefined</li>
+        	<li>console.log(String(value5)) //1,2,3,4</li>
+        </ul>
+    
+    
+        
+    
+    
+    
+    
+    
+
+	</div>
+</body>
+</html>
