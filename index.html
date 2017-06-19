@@ -9,7 +9,7 @@ html, body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, p
     margin: 0;
     padding: 0;
     -webkit-tap-highlight-color: rgba(255,255,255,0);
-    -webkit-appearance: none;
+
 }
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
     display: block;
@@ -221,6 +221,30 @@ select::-ms-expand {
 .advanced-road{
 	margin-top: 20px;
 }
+.advanced-road-a{
+	margin: 0 20px;
+}
+.advanced-road-h{
+	text-align: center;
+	border-bottom: 1px solid #999;
+	margin: 0 10px;
+}
+.hualuo-span-p{
+	margin-top: 20px;
+	line-height: 30px;
+}
+.hualuo-work-input input{
+	width: 20px;
+	height: 20px;
+}
+.hualuo-work-1{
+	display: block;
+	margin: 10px 10px;
+}
+
+？
+
+
 </style>
 <link rel="stylesheet" href="css/global.css" />
     <script src="js/jquery-3.1.1.min.js"></script>
@@ -264,15 +288,43 @@ select::-ms-expand {
 	           
 	            <span class="hualuo-span">进阶之路</span>
 	            <ul class="advanced-road">
-	                <li class="center">vue之路</li>
+	                <li class="center"><h3 class="advanced-road-h">vue之路</h3></li>
 	                <li>Vue.js是集中在MVVM模式的ViewModel层，它是连接视图和数据绑定模型通过两种方式。实际的DOM操作和输出格式被抽象的方式到指令和过滤器。</li>
-	                <li></li>
+	                <li>
+	                    <a href="hualuo/vueOne.html" class="border-bottom advanced-road-a">一</a>
+	                    <a href="" class="border-bottom advanced-road-a">二</a>
+	                </li>
 	            </ul>
+	            <h3 class="advanced-road-h">成品项目</h3>
+	            <span><a href="https://github.com/whx694078113/music" class="border-bottom advanced-road-a">一</a></span>
 
 	            <span class="hualuo-span">工作中的总结</span>
-	            <ul>
-	            	<li></li>
+	            <p class="hualuo-span-p">第一个问题：&nbsp;input复选框，当有人选择时对应的内容发生变化</p>
+	            <ul class="hualuo-work">
+	            	<li class="hualuo-work-input">
+	            	    <label for=""><input type="checkbox" value="1" name="hualuo-checkbox-1"></label>
+	            	    <span class="hualuo-input-1">做一个简单的测试</span>
+	            	</li>
+	                
+
 	            </ul>
+	            <p class="hualuo-span-p">第二个问题：&nbsp;表单验证，当有未通过项时提出提示框</p>
+             <!--action="/qmcj/login/login"/-->
+                <form method="POST" id="form">
+                    <ul class="mod-form-list">
+                        <li class="mod-form-item mod-form-input-wrapper">
+                            <input type="text" name="loginname" id="loginname" value="" class="mod-form-input" placeholder="请输入用户名" />
+                        </li>
+                        <li class="mod-form-item mod-form-input-wrapper">
+                           <input type="password" name="passwd" id="passwd" value="" class="mod-form-input" placeholder="请输入密码"/>
+                        </li>
+                        <li id="formValidateMsg" class="mod-form-item-errorMsg m-t-4"></li>
+                        <li class="mod-form-item">
+                            <input type="submit" value="登录" class="mod-form-submit btn1"/>
+                        </li>
+                    </ul>
+
+                </form>
 
 	            <ul class="hualuo-left-3">
 	            	<li>策划人&nbsp;：花落</li>
@@ -344,6 +396,8 @@ select::-ms-expand {
 	</div>
 	 <script src="js/clock.js"></script>
 	 <script src="js/vue.min.js"></script>
+	 <script src="js/validator.js"></script>
+	 <script src="js/zepto.js"></script>
     <script>
         $("#hoverclock").hoverclock({
             "h_width":200,
@@ -358,6 +412,96 @@ select::-ms-expand {
             //"h_frontColor":"red",
             "h_linkText": "HoverClock"
         });
+  
+        $('input [type="radio"]').each(function(){
+            if($(this).val()==$(this).data('value')){
+                $(this).prop('checked',true);
+            }
+        });
+         $('input [type="checkbox"]').each(function(){
+            if($(this).val()==$(this).data('value')){
+                $(this).prop('checked',true);
+            }
+        });
+        
+
+        $('input[type=radio]').on('click',function(){
+            check1();
+        });
+        $('input[type=checkbox]').on('click',function(){
+            check1();
+        });
+        function check1(){
+           $('input[type=checkbox]').each(function(){
+                if($(this).prop('name')=='hualuo-checkbox-1' && $(this).prop('checked')==true && $(this).prop('value')==1){
+                    $('.hualuo-input-1').hide()
+                } else{
+            	$('.hualuo-input-1').show()
+                }
+           });
+         
+           
+        }
+
+ $(function(){
+                var validateForm = {
+                    _validateInit : function(){
+                        var me = this,
+                            validateRules = {
+                                'loginname': {
+                                    rules: ['required'],
+                                    desc: '用户名'
+                                },
+                                'passwd': {
+                                    rules: ['required'],
+                                    desc: '密码'
+                                }
+                            };
+                        this.validator = new Validator({
+                            successCallback : me.validateSuccess,
+                            errorCallback : me.validateError
+                        });
+                        this.validator.init(validateRules);
+                        this.validator.addRule();
+                    },
+                    validateSuccess : function(info,opt){
+
+                    },
+                    validateError : function(info,opt){
+                        var me = this,
+                            ele = $("#formValidateMsg");
+                        if(ele.size() > 0){
+                            ele.show().html(info.msg)
+                        }
+                        opt && opt.callback && callback();
+                    }
+                };
+
+                var confirmTip;
+
+                validateForm._validateInit();
+
+                // $(".mod-form-input").on('focus', function(){
+                //     $("#formValidateMsg").hide();
+                // })
+
+                $("#form").on('submit', function(evt){
+                    validateForm.validator.validateAll({
+                        success : function(){
+                            
+                        },
+                        error : function(result){
+                              evt.preventDefault();              
+                        }
+                    }, true);
+                })
+
+            })
+
+
+
+     
+
     </script>
 </body>
 </html>

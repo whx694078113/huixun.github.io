@@ -3,7 +3,7 @@ html, body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, p
     margin: 0;
     padding: 0;
     -webkit-tap-highlight-color: rgba(255,255,255,0);
-    -webkit-appearance: none;
+    /*-webkit-appearance: none;*/
 }
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
     display: block;
@@ -600,4 +600,65 @@ select::-ms-expand {
     position: absolute;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.mod-form-item {
+    margin-bottom: .4rem;
+    width: 100%;
+    position: relative;
+}
+.mod-form-item-errorMsg {
+    line-height: 0;
+    padding: .4rem 0;
+    display: none;
+    font-size: .24rem;
+    color: #ff0000;
+}
+.mod-form-item {
+    margin-bottom: .4rem;
+    width: 100%;
+    position: relative;
+}
+.mod-form-input, .mod-form-textarea {
+    border: none;
+    border: 1px solid #ccc;
+    display: inline-block;
+    -webkit-box-flex: 1;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(255,0,0,0);
+    font-size: .28rem;
+    color: #898989;
+    padding: .2rem .15rem;
+    height: .7rem;
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: .3rem;
+    position: relative;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    background: #fff;
+    }
+    .btn1 {
+    border: none;
+    display: block;
+    -webkit-box-flex: 1;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(255,0,0,0);
+    font-size: .36rem;
+    text-align: center;
+    height: .8rem;
+    line-height: .8rem;
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #3b9cf2;
+    color: #fff;
+    position: relative;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    box-shadow: 1px 1px 2px #c6cad3;
+    -webkit-box-shadow: 1px 1px 2px #bdac93;
 }

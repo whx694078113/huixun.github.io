@@ -12,9 +12,10 @@
 .essay-record ul{
 	margin-top: 10px;
 	color: #999;
+    background: #eee;
 }
 .essay-record-1 li:nth-child(even){
-     background: #eee;
+     
 }
 .essay-record-2{
 	margin-top: 20px;
@@ -118,14 +119,226 @@
         	<li>console.log(String(value4)) //undefined</li>
         	<li>console.log(String(value5)) //1,2,3,4</li>
         </ul>
-    
-    
+
+        <p class="essay-record-2">break和continue的区别</p>
+        <ul>
+            <li>var num = 0;</li>
+            <li>outermost:</li>
+            <li>for(var i = 0; i < 10; i++){</li>
+            <li>&nbsp;for(var j = 0; j < 10; j++){</li>
+            <li>&nbsp;&nbsp;if(i == 5 && j ==5){</li>
+            <li>&nbsp;&nbsp;break outermost;</li>
+            <li>&nbsp;&nbsp;}</li>
+            <li>&nbsp;&nbsp;num++;</li>
+            <li>&nbsp;}</li>
+            <li>}</li>
+            <li>console.log(num)//输出55break跳出循环结束</li>
+        </ul>
+
+        <ul>
+            <li>var num1 = 0;</li>
+            <li>outermost:</li>
+            <li>for(var i = 0; i < 10; i++){</li>
+            <li>&nbsp;for(var j = 0; j < 10; j++){</li>
+            <li>&nbsp;&nbsp;if(i == 5 && j ==5){</li>
+            <li>&nbsp;&nbsp;continue outermost;</li>
+            <li>&nbsp;&nbsp;}</li>
+            <li>&nbsp;&nbsp;num1++;</li>
+            <li>&nbsp;}</li>
+            <li>}</li>
+            <li>console.log(num1)//输出95break跳出内部循环继续执行</li>
+        </ul>
+
+        <ul>
+            <li>var num2 = 25;</li>
+            <li>switch(true){</li>
+            <li>&nbsp;case num2 < 0:</li>
+            <li>&nbsp;&nbsp;console.log("less than 0")</li>
+            <li>&nbsp;&nbsp;break;</li>
+            <li>&nbsp;case num2 >= 0 && num2 <=20:</li>
+            <li>&nbsp;&nbsp;console.log("Between 0 and 20");</li>
+            <li>&nbsp;default:</li>
+            <li>&nbsp;&nbsp;console.log("more than 20")</li>
+            <li>}</li>
+        </ul>
+
+        <ul>
+            <li>function doAdd(){</li>
+            <li>&nbsp;if(arguments.length == 1){</li>
+            <li>&nbsp;&nbsp;console.log(arguments[0] + 10);</li>
+            <li>&nbsp;&nbsp;} else if(arguments.length == 2){</li>
+            <li>&nbsp;&nbsp;console.log(arguments[0] + arguments[1]);</li>
+            <li>&nbsp;}</li>
+            <li>}</li>
+            <li>doAdd(10);//20</li>
+            <li>doAdd(20,30);//50</li>
+        </ul>
+
+        <ul>
+            <li>var color = "blue";</li>
+            <li>function changeColor(){</li>
+            <li>&nbsp;if(color == "blue"){</li>
+            <li>&nbsp;&nbsp;color = "red";</li>
+            <li>&nbsp;} else {</li>
+            <li>&nbsp;&nbsp;color = "blue";</li>
+            <li>&nbsp;}</li>
+            <li>}</li>
+            <li>changeColor();</li>
+           <li>console.log("Color is now " + color)//Color is now red</li>
+        </ul>
+
+        <ul>
+            <li>var person1 = {</li>
+            <li>&nbsp;toLocaleString: function(){</li>
+            <li>&nbsp;&nbsp;return "Nikolaos";</li>
+            <li>&nbsp;},</li>
+            <li>&nbsp;toString: function(){</li>
+            <li>&nbsp;&nbsp;return "Nicholas";</li>
+            <li>&nbsp;}</li>
+            <li>};</li>
+            <li>var person2 = {</li>
+            <li>&nbsp;toLocaleString: function(){</li>
+            <li>&nbsp;&nbsp;return "Grigories";</li>
+            <li>&nbsp;},</li>
+            <li>&nbsp;toString: function(){</li>
+            <li>&nbsp;&nbsp;return "Grep";</li>
+            <li>&nbsp;}</li>
+            <li>};</li>
+            <li>var people = [person1, person2];</li>
+            <li>console.log(people);//Array(2)</li>
+            <li>console.log(people.toString());//Nikolaos,Grep</li>
+            <li>console.log(people.toLocaleString());//Nikolaos,Grigories</li>
+        </ul>
+
+        <p class="essay-record-2">push和pop的用法</p>
+        <ul>
+            <li>var colors = new Array();</li>
+            <li>var count = colors.push("red", "green");</li>
+            <li>console.log(count);//2 push返回数组的length</li>
+            <li>count = colors.push("black");</li>
+            <li>console.log(count);//3</li>
+        </ul>
+
+        <ul>
+            <li>var item = colors.pop();</li>
+            <li>console.log(item);//black pop删除最后一项并返回</li>
+            <li>console.log(colors.length);//2</li>
+        </ul>
         
+        <p class="essay-record-2">shift和unshift的用法</p>
+        <ul>
+            <li>var colors = new Array();</li>
+            <li>var count = colors.push("red","green");</li>
+            <li>console.log(count);//2</li>
+            <li>count = colors.push("black");</li>
+            <li>console.log(count);//3</li>
+            <li>var item = colors.shift();</li>
+            <li>console.log(item);//red shift删除第一项并返回</li>
+            <li>console.log(colors.length);//2</li>
+        </ul>
+
+        <ul>
+            <li>var colors = new Array();</li>
+            <li>var count = colors.unshift("red","green");</li>
+            <li>console.log(count);//2</li>
+            <li>count = colors.unshift("black");</li>
+            <li>console.log(count);//3  unshift是像数组最前项添加</li>
+            <li>var item = colors.pop();</li>
+            <li>console.log(item);//green</li>
+            <li>console.log(colors.length);//2</li>
+        </ul>
+        
+        <p class="essay-record-2">sort</p>
+        <ul>
+            <li>function compare(Value1,Value2){</li>
+            <li>&nbsp;if(Value1 < Value2){</li>
+            <li>&nbsp;&nbsp;return -1;</li>
+            <li>&nbsp;} else if(Value1 > Value2){</li>
+            <li>&nbsp;&nbsp;return 1;</li>
+            <li>&nbsp;} else {</li>
+            <li>&nbsp;&nbsp;return 0;</li>
+            <li>&nbsp;}</li>
+            <li>}</li>
+            <li>var value = [1,10,5,18,27,9,39,88,51];</li>
+            <li>value.sort(compare);</li>
+            <li>console.log(value);//[1,5,9,10,18,27,39,51,88]</li>
+        </ul>
+
+        <p class="essay-record-2">slice</p>
+        <ul>
+            <li>var colors = ["red","green","black","yellow"];</li>
+            <li>var colors2 = colors.slice(1);</li>
+            <li>var colors3 = colors.slice(1,3);</li>
+            <li>console.log(colors2);//[green","black","yellow"] slice如果只有一个参数就取得当前和之后的参数，slice用法不影响原来数组</li>
+            <li>console.log(colors3);//[green","black","yellow"] slice如果有两个参数就取它们之间的</li>
+        </ul>
+
+        <ul>
+            <li>var colors = ["red","green","blue"];</li>
+            <li>var removed = colors.splice(0,1);</li>
+            <li>console.log(colors);//["green","blue"] splice删除指定位子的值</li>
+            <li>console.log(removed);//red 返回的是删除的值</li>
+            <li>removed = colors.splice(1,0,"yellow","orange");</li>
+            <li>console.log(colors);//["green","yellow","orange","blue"]</li>
+            <li>console.log(removed);//[]</li>
+            <li>removed = colors.splice(1,1,"red","purple");</li>
+            <li>console.log(colors);//["green","red","purple","orange","blue"]</li>
+            <li>console.log(removed);//["red"]</li>
+        </ul>
+         
+
+         <p class="essay-record-2">every,some,filter,map,新增reduce和reduceRight</p>
+        <ul>
+            <li>var numbers = [1,2,3,4,5,6,5,4,3];</li>
+            <li>var everyResult = numbers.every(function(item,index,array){</li>
+            <li>&nbsp;return (item > 2);</li>
+            <li>})</li>
+            <li>console.log(everyResult);//false every方法必须全部为真才会返回true否则返回false</li>
+            <li>var someResult = numbers.some(function(item,index,array){</li>
+            <li>&nbsp;return (item > 2);</li>
+            <li>})</li>
+            <li>console.log(someResult);//true some方法只要有一项返回真就位true</li>
+            <li>var filterResult = numbers.filter(function(item,index,array){</li>
+            <li>&nbsp;return (item > 2);</li>
+            <li>})</li>
+            <li>console.log(filterResult);//[3,4,5,6,5,4,3]  返回为真的项</li>
+            <li>var mapResult = numbers.map(function(item,index,array){</li>
+            <li>&nbsp;return (item * 2);</li>
+            <li>})</li>
+            <li>console.log(mapResult);//[2,4,6,8,10,12,10,8,6] 遍历数组，返回数组*2</li>
+            <li>var sum = numbers.reduce(function(prev,cur,index,array){</li>
+            <li>&nbsp;return prev + cur;</li>
+            <li>})</li>
+            <li>console.log(sum);//33</li>
+            <li>var sum = numbers.reduceRight(function(prev,cur,index,array){</li>
+            <li>&nbsp;return prev + cur;//33</li>
+            <li>})</li>
+            <li>console.log(sum)</li>
+        </ul>
+
+
+
+
+
     
+
+
+
+
+
     
+
+
+
+
     
+
+
+
+
     
-    
+
+
 
 	</div>
 </body>

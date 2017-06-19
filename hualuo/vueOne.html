@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="productReview">
+<div>
+       <div class="header clearfix">
+            <div class="header-left"><img src="../images/logo.png" height="60"></div>
+            <ul class="header-nav">
+                 <li><a href="">产品数据</a></li>
+                 <li><a href="">产商数据</a></li>
+                 <li><a href="">实验数据</a></li>
+                 <li><a href="">网络数据</a></li>
+                 <li><a href="">可靠性模拟</a></li>
+                 <li><a href="">数据管理</a></li>
+                 <li><a href="">系统管理</a></li>
+                 <li><a href="">个人中心</a></li>
+            </ul>
+       </div>
+        <div class="content clearfix">
+          
+            <div class="main">
+                <div class="search-criteria">
+                    <span v-for="(item, index) in searchCriteria">
+                        <select v-if="item.type == 'select'" class="select-1" :class="'search-criteria-' + index">
+                            <option v-for="(t, i) in item.data" :value="i">{{t.name}}</option>
+                        </select>
+                        <input v-if="item.type == 'input'" type="text" :name="index" class="input-1" :class="'search-criteria-' + index" value="" />
+                    </span>
+                    <span>
+                        <a @click="add()" class="btn2">添加</a>
+                    </span>
+                    <span>
+                        <a @click="search()" class="btn2">搜索</a>
+                    </span>
+                </div>
+
+                                <div class="search-criteria-list m-t15" v-if="filter.length > 0">
+                    <table class="table1">
+                        <tr>
+                            <th v-for="item in searchCriteria">条件</th>
+                            <th>状态</th>
+                        </tr>
+                        <tr v-for="(item, index) in filter">
+                            <td v-for="(t, i) in item">{{t.name}}</td>
+                            <td>
+                                <a @click="del(index)" class="font2">删除</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                 <div class="m-t30">
+                    <table class="table1">
+                        <tr>
+                            <th>序号</th>
+                            <th>上传时间</th>
+                            <th>上传人员</th>
+                            <th>文件名称</th>
+                            <th>操作</th>
+                            <th>备注信息</th>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>2017-02-12</td>
+                            <td>王先生</td>
+                            <td>制备工艺</td>
+                            <td>
+                                <a @click="download($event)">下载</a> |
+                                <a @click="pass($event)">通过</a> |
+                                <a @click="refuse($event)">拒绝</a> |
+                                <a @click="del($event)">删除</a>
+                            </td>
+                            <td>型号规格</td>
+                        </tr>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    </div>    
+</div>
+
+
+<script src="../js/vue.min.js"></script>
+<script>
+     
+
+        new Vue({
+            el:'#productReview',
+      
+           data: function () {
+            var headerNavCurrent = 'dataBase';
+            return {
+                searchCriteria: {
+                    'a1' : {
+                        'type': 'select',
+                        'data': [{
+                            'value': 'b',
+                            'name': '售价'
+                        }, {
+                            'value': 'c',
+                            'name': '实验数据'
+                        }, {
+                            'value': 'd',
+                            'name': '商品'
+                        }, {
+                            'value': 'e',
+                            'name' : '人数'
+                        }]
+                    },
+                    'a2' : {
+                        'type': 'select',
+                        'data': [{
+                            'value': 'b',
+                            'name': '大于'
+                        }, {
+                            'value': 'c', 
+                            'name': '等于'
+                        }, {
+                            'value': 'd',
+                            'name':  '小于'
+                        }]
+                    },
+                    'a3' : {
+                        'type': 'input'
+                    }
+                },
+                filter: [],
+                total: 0,
+                pageNumber: 0,
+                currentPage: 0
+                
+            };
+        },
+  
+        methods: {
+            add () {
+                var result = {};
+                var item;
+                var value;
+                for (var i in this.searchCriteria) {
+                    if (this.searchCriteria.hasOwnProperty(i)) {
+                        item = this.searchCriteria[i];
+                        value = document.querySelector('.search-criteria-' + i).value;
+                        if (item.type === 'input') {
+                            result[i] = {
+                                value: value,
+                                name: value
+                            };
+                        } else if (item.type === 'select') {
+                            result[i] = item.data[value]
+                        }
+                    }
+                }
+                this.filter.push(result);
+            },
+            del (index) {
+                this.filter.splice(index, 1);
+            },
+            follow () {
+
+            },
+            search () {
+
+            },
+
+            cutPage (page) {
+                this.currentPage = Number(page);
+            }
+        },
+        mounted () {
+            this.total = 7;
+            this.pageNumber= 10;
+            var me = this;
+            setTimeout(function() {
+                me.currentPage= 1
+            })
+        }
+   
+     
+  
+     });
+</script>
+    <style lang="sass">
+          html,body{
+            height: 100%;
+            position: relative;
+          }
+          .content{
+            width: 100%;
+            position: absolute;
+            min-height: 100%;
+            top: 0;
+            left: 0;
+            padding-top: 80px;
+            box-sizing: border-box;
+            border-left: 220px solid #4D82DB;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+          }
+          .mian{
+            padding: 30px 20px;
+          }
+          .search-criteria span{
+            margin-right: 20px;
+          }
+          .modal-content{
+            width: 720px;
+            h4{
+                margin: 16px 0;
+                font-size: 16px;
+                color: #666;
+            }
+          }
+          body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+html,
+body{
+    height:100%;
+    background: #fff;
+    color:#666;
+    min-width: 1000px;
+    min-height: 100%;
+    
+}
+body, button, input, select, textarea , pre {
+    font-size: 12px;
+    line-height: 18px;
+    font-family:Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti;
+    /*font-family:Tahoma, Helvetica, Arial, STHeiti;*/
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size:100%;
+}
+
+h3,h4,h5,h6{
+    font-weight: normal;
+}
+address, cite, dfn, em, var,i {
+    font-style:normal;
+}
+small {
+    font-size:12px;
+}
+ul, ol {
+    list-style:none;
+}
+
+a {
+    text-decoration:none;
+    color:#000;
+    -webkit-touch-callout:none;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+
+sup {
+    vertical-align:text-top;
+}
+sub {
+    vertical-align:text-bottom;
+}
+fieldset, img {
+    border:0;
+}
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+textarea {
+    resize:none;
+}
+
+*:focus {
+    outline:0;
+}
+
+.left {
+    float:left;
+}
+.right {
+    float:right;
+}
+
+.tright{
+    text-align: right;
+}
+
+.tcenter{
+    text-align: center;
+}
+
+.hide {
+    display:none;
+}
+
+.inlineBlock {
+    display:inline-block;
+    zoom:1;
+}
+.inline {
+    display:inline;
+}
+
+button {
+    cursor:pointer;
+}
+
+.block,article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+    display:block;
+}
+
+.ps{
+    position: relative;
+}
+
+.clearfix:after {
+    content:'\20';
+    display:block;
+    height:0;
+    clear:both;
+    overflow:hidden;
+    visibility: hidden;
+}
+
+.clearfix {
+    zoom:1;
+}
+
+.clear {
+    clear:both;
+}
+
+.wordwrap {
+    word-break:break-all;
+    word-wrap:break-word;
+}
+
+.f14{
+    font-size: 14px;
+}
+
+.f16{
+    font-size: 16px;
+}
+
+.fb{
+    font-weight: bold;
+}
+
+
+.m-t15{
+    margin-top: 15px;
+}
+
+.m-t30{
+    margin-top: 30px;
+}
+
+.font2{
+    color: #F47564;
+}
+
+.btn1 {
+    border: 0;
+    background: none;
+    background: #669FFF;
+    border-radius: 4px;
+    height: 60px;
+    line-height: 60px;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+}
+
+
+.btn2{
+    border: 0;
+    background: none;
+    background: #fff;
+    border-radius: 4px;
+    height: 38px;
+    line-height: 38px;
+    color: #4D82DB;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    width: 110px;
+    cursor: pointer;
+    border: 1px solid #4D82DB;
+}
+
+
+.btn3{
+    border: 0;
+    background: none;
+    background: #4D82DB;
+    border-radius: 4px;
+    height: 38px;
+    line-height: 38px;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    width: 110px;
+    cursor: pointer;
+    border: 1px solid #4D82DB;
+}
+
+
+.select-1 {
+    border: 1px solid #ccc;
+    height: 38px;
+    min-width: 100px;
+    border-radius: 4px;
+}
+
+.input-1 {
+    border: 1px solid #ccc;
+    height: 16px;
+    min-width: 70px;
+    padding: 11px 15px;
+    line-height: 16px;
+    border-radius: 4px;
+}
+
+.table1 {
+    width: 100%;
+}
+
+.table1 th,
+.table1 td{
+    padding: 18px 0;
+    vertical-align: middle;
+    border: 1px solid #eee;
+    text-align: center;
+}
+
+.table1 th{
+    background: #E9F1FF;
+    color: #7B8DA0;
+    font-size: 14px;
+}
+
+.table1 td{
+    color: #666;
+    font-size: 12px;
+}
+
+.table1 a {
+    color: #4D82DB;
+}
+
+.table-bg tr:nth-child(odd) {
+    background: #F7FAFF;
+}
+
+
+.area1{
+    margin: 20px;
+    border:1px solid #EEEEEE;
+}
+
+.area1-title {
+    background: #F3F4F5;
+    padding: 30px 45px;
+    font-size: 14px;
+    color: #666;
+}
+
+
+.area1-title li {
+    margin-right: 40px;
+    float: left;
+}
+
+.area1-title li input {
+    margin-right: 5px;
+}
+
+.form1 {
+    margin: 30px 45px;
+}
+
+.form1-item {
+    margin-bottom: 20px;
+}
+
+
+.form1-label {
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+    margin-right: 10px;
+    width: 60px;
+}
+
+.form1-input {
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #666;
+    line-height: 18px;
+    padding: 10px;
+}
+
+.form1-select {
+    backgroung: #fff;
+    border: none;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #666;
+    height: 38px;
+}
+
+    .header {
+        height: 80px;
+        width: 100%;
+        background: #3F4B57;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+
+    }
+
+    .header-left {
+        width: 220px;
+        float: left;
+        height: 80px;
+        font-size: 20px;
+        text-align: center;
+        line-height: 80px;
+        color: #fff;
+        img {
+            margin-top: 10px;
+        }
+    }
+
+    .header-nav {
+        float: left;
+        min-width: 1000px;
+    }
+
+    .header-nav li {
+        float: left;
+        line-height: 80px;
+        background: url('../img/line.png') no-repeat left 50%;
+    }
+
+    .header-nav li:nth-child(1) {
+        background: none;
+    }
+
+    .header-nav li a {
+        font-size: 16px;
+        display: block;
+        color: #fff;
+        padding: 0 30px;
+        max-width: 150px;
+    }
+
+
+    .header-nav li.current{
+        background: #4D82DB;
+        margin-left: -1px;
+        margin-right: -1px;
+        position: relative;
+        z-index: 1;
+    }
+
+
+
+    </style>
+</body>
+</html>
+<style lang="sass">
+
+    html, body {
+        height: 100%;
+        position: relative;
+    }
+    .content {
+        width:100%;
+        position:absolute;
+        min-height: 100%;
+        top: 0;
+        left: 0;
+        padding-top: 80px;
+        box-sizing:border-box;
+        border-left: 220px solid #4D82DB;
+        -moz-box-sizing:border-box; /* Firefox */
+        -webkit-box-sizing:border-box; /* Safari */
+    }
+    .main{
+        padding: 30px 20px;
+    }
+
+    .search-criteria span{
+        margin-right: 20px;
+    }
+
+    .modal-content {
+        width: 720px;
+        h4 {
+            margin: 16px 0;
+            font-size: 16px;
+            color: #666;           
+        }
+    }
+
+    
+
+
+</style>
