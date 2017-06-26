@@ -126,12 +126,17 @@ select::-ms-expand {
 }
 
 .hualuo-header{
-    display: box;
-    display: -webkit-box;
-    display: -moz-box;
+	display: -webkit-flex;
+    display:         flex;
+    -webkit-flex-flow: row;
+           flex-flow: row;
 }
 .hualuo-header-1{
 	margin: 0 20px;
+	-webkit-flex: 1 6 40%;
+           flex: 1 6 40%;
+    -webkit-order: 1;
+           order: 1;
 }
 .hualuo-header-1 dt{
 	line-height: 60px;
@@ -144,21 +149,41 @@ select::-ms-expand {
 	border-right: 4px solid #666;
 	margin-left: 5px;
 }
+.hualuo-header-2{
+	-webkit-flex: 3 1 60%;
+           flex: 3 1 60%;
+    -webkit-order: 2;
+           order: 2;
+}
 .hualuo-main{
-	margin-top: 20px;
+	min-height: 800px;
+	display: -webkit-flex;
+    display:         flex;
+    -webkit-flex-flow: row;
+           flex-flow: row;
+    margin-bottom: 15px;
 }
 .hualuo-left{
-	position: absolute;
-	left: 240px;
-	right: 20px;
-	height: 100%;
+	border: 1px dashed #eee;
+    border-radius: 7pt;
+    margin: 4px;
+    padding: 5px;
+	-webkit-flex: 3 1 80%;
+           flex: 3 1 80%;
+   -webkit-order: 2;
+           order: 2;
+
 }
 .hualuo-right{
-	float: left;
-	width: 200px;
-	border: 1px dashed #eee;
+	margin: 4px;
+    padding: 5px;
+    border: 1px dashed #eee;
 	background: #fff;
-	margin-left: 10px;
+    border-radius: 7pt;
+   -webkit-flex: 1 6 20%;
+           flex: 1 6 20%;
+   -webkit-order: 1;
+           order: 1;	
 }
 .hualuo-left-2{
 	border: 1px dashed #eee;
@@ -191,8 +216,10 @@ select::-ms-expand {
 	margin-top: 10px;
 }
 .hualuo-right span{
-	padding: 0 15px;
-	margin-top: 25px;
+	padding: 0 10px;
+	margin-top: 20px;
+	display: block;
+	display: -webkit-block;
 }
 .hualuo-left-3{
 	
@@ -242,31 +269,47 @@ select::-ms-expand {
 	margin: 10px 10px;
 }
 
-？
+ @media all and (max-width: 800px) {
+  
+   .hualuo-main .hualuo-header{
+    -webkit-flex-flow: column;
+            flex-direction: column;
+    text-align: center;
+   }
+
+   .hualuo-main > nav, .hualuo-header > .hualuo-header-2{
+    /* 恢复到文档内的自然顺序 */
+    -webkit-order: 0;
+            order: 0;
+   }
+   .hualuo-main > article, .hualuo-header > .hualuo-header-1{
+   	display: none
+   }
+  
+  }
 
 
 </style>
 <link rel="stylesheet" href="css/global.css" />
     <script src="js/jquery-3.1.1.min.js"></script>
 <body>
-	<div class="hualuo-header">
-	    <div class="hualuo-header-1">
+	
+    <div class="hualuo-header">
+	    <article class="hualuo-header-1">
 	        <dl>
 	     	    <dt>花落落花</dt>
 	     	    <dd>记一个小白前端之路</dd>
-	     	    <dd>--不为了什么,只为了心中的那股执念，不放弃</dd>
+	     	    <dd>--点点滴滴，滴滴记录--记录编</dd>
 	        </dl>
-	    </div>
+	    </article>
 
 
-	    <div  style="width:200px;margin:10px auto;">
-	    <div id="hoverclock">
-        </div>
-	    </div>
+        <nav  class="hualuo-header-2">
+	        <div id="hoverclock"></div>
+	    </nav>
 	</div>
-
 	<div class="hualuo-main">
-	    <div class="hualuo-left">
+	    <nav class="hualuo-left" >
 	        <div class="hualuo-left-1">
 	        	<a href="">个人</a>
 	        	<a href="">首页</a>
@@ -275,6 +318,10 @@ select::-ms-expand {
 	        </div>
 	        <div class="hualuo-left-2">
 	            <span class="hualuo-span">出入前端</span>
+	            <div class="hualuo-dream">&nbsp;不曾记得，是如何开始这边的路的，慢慢的摸索也发现了一些其中的乐趣，虽然我现在会的不多，但是我任然会坚持每天一点点的纪录，点点滴滴。
+	            So i'll dream until i make it real and all i see is stars.it's not until you fall that you fly. When your derams come alive you're unstoppable. take a shot chase the sun find the beautiful. We will glow in the dark turning dust to gold. And we'll dream it possible.</div>
+
+
 	            <span class="hualuo-span">小白之路</span>
 	            <div class="hualuo-xiaobai">
                     <ul class="hualuo-xiaobai-1">
@@ -308,23 +355,12 @@ select::-ms-expand {
 	                
 
 	            </ul>
-	            <p class="hualuo-span-p">第二个问题：&nbsp;表单验证，当有未通过项时提出提示框</p>
-             <!--action="/qmcj/login/login"/-->
-                <form method="POST" id="form">
-                    <ul class="mod-form-list">
-                        <li class="mod-form-item mod-form-input-wrapper">
-                            <input type="text" name="loginname" id="loginname" value="" class="mod-form-input" placeholder="请输入用户名" />
-                        </li>
-                        <li class="mod-form-item mod-form-input-wrapper">
-                           <input type="password" name="passwd" id="passwd" value="" class="mod-form-input" placeholder="请输入密码"/>
-                        </li>
-                        <li id="formValidateMsg" class="mod-form-item-errorMsg m-t-4"></li>
-                        <li class="mod-form-item">
-                            <input type="submit" value="登录" class="mod-form-submit btn1"/>
-                        </li>
-                    </ul>
+	            <p class="hualuo-span-p">第二个问题：&nbsp;表单验证，当有未通过项时提出提示框<a href="hualuo/validate-2.html" target="view_window" class="red">点击查看</a></p>
 
-                </form>
+	            <p class="hualuo-span-p">第三个问题：&nbsp;简易日历的制作</p>
+
+	            <p>第四个问题：&nbsp;</p>
+                
 
 	            <ul class="hualuo-left-3">
 	            	<li>策划人&nbsp;：花落</li>
@@ -333,10 +369,10 @@ select::-ms-expand {
 	            	<li>时间&nbsp;:2017-6-12</li>
 	            </ul>
 	        </div>
-	    </div>
+	    </nav>
 
 
-        <div class="hualuo-right">
+        <article class="hualuo-right" >
 	        <div class="hualuo-right-content">
 	            <h2>公告</h2>
 	            <ul>
@@ -356,16 +392,17 @@ select::-ms-expand {
 	        	   <li>+加关注</li>
 	            </ul>
 
-	            <span>最新笔记</span>
+	            <span class="hualuo-right-span">最新笔记</span>
 	            <ul>
 	        	    <li><a class="border-bottom" href="hualuo/clip-path.html" target="view_window">css:clip-path的用处</a></li>
-	        	    <li><a class="border-bottom" href="">css:border的各种属性</a></li>
-	        	    <li></li>
-	        	    <li></li>
-	        	    <li></li>
+	        	    <li><a class="border-bottom" href="hualuo/border.html" target="viewport">css:border的各种属性</a></li>
+	        	    <li>css:flex布局问题:<a class="border-bottom" href="hualuo/flex.html"
+	        	    target="view_window">一</a><a href="hualuo/flex1.html" class="border-bottom" target="view_window">二</a></li>
+	        	    <li><a class="border-bottom" href="hualuo/transition.html" target="view_window">css：transition</a></li>
+	        	    <li><a href="hualuo/gradient.html" class="border-bottom" target="view_window">css:渐变</a></li>
 	            </ul>
 
-	            <span>随笔纪录</span>
+	            <span class="hualuo-right-span">随笔纪录</span>
 	            <ul>
 	        	    <li>表单验证
 	        	        <a href="hualuo/validate.html" target="view_window" class="border-bottom">一</a>&nbsp;&nbsp;
@@ -378,7 +415,7 @@ select::-ms-expand {
 	        	    <li></li>
 	            </ul>
 
-	            <span>随笔档案</span>
+	            <span class="hualuo-right-span">随笔档案</span>
 	            <ul>
 	        	    <li><a class="border-bottom" href="hualuo/essay-record.html" target="view_window">2017年6月</a></li>
 	        	    <li></li>
@@ -392,7 +429,7 @@ select::-ms-expand {
 	        	    <li></li>
 	            </ul>
 	        </div>
-	    </div>
+	    </article>
 	</div>
 	 <script src="js/clock.js"></script>
 	 <script src="js/vue.min.js"></script>

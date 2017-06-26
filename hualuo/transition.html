@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>transition</title>
+</head>
+<style>
+    .test{
+    	height: 100px;
+    	width: 100px;
+    	background-color: pink;
+    	transition-duration: 3s; /*分别为过渡属性  过渡持续时间 过渡函数 过渡过渡延迟时间*/
+    	transition-property: all;
+    	transition-timing-function: ease;
+    	transition-delay: 0s; 
+    }
+    .test:hover{
+    	width: 500px;
+    }
+    .test1{
+        height: 100px;
+        width: 100px;
+        margin-top: 20px;
+        background-color: pink;
+        /*代表持续时间为s，延迟时间为2s*/
+        transition: 1s 2s;
+    }    
+    .test1:hover{
+        width: 500px;
+        background: red
+    }
+    .test2{
+    	height: 100px;
+    	width: 100px;
+    	margin-top: 20px;
+    	background-color: pink;
+    	transition: all 1s steps(3) 0s;
+    }
+    .test2:hover{
+    	width: 500px;
+    }
+    .test3{
+    	height: 100px;
+    	width: 100px;
+    	margin-top: 20px;
+    	background-color: pink;
+    	transition: all 2s ease 0s; /*ease linear ease-in ease-out ease-in-out  step-start*/
+    }
+    .test3:hover{
+    	width: 500px;
+    }
+    .test4{
+    	height: 100px;
+    	width: 100px;
+    	margin-top: 20px;
+    	background-color: pink;
+    	transition: 3s;
+    }
+    .test4:hover{
+    	width: 500px;
+    	transition: 500ms;
+    }
+    .box{
+    	width: 200px;
+    	height: 200px;
+    	margin-top: 20px;
+    	background: pink;
+    	position: relative;
+    }
+    .test5{
+    	width: 100px;
+    	height: 100px;
+    	background: red;
+    	position: absolute;
+    	left: 50%;
+    	margin-left: -50px;
+    	top: 50%;
+    	margin-top: -50px;
+    }
+    .box:hover{
+    	font-size: 50px;
+    }
+    .test5:hover{
+    	font-size: 30px
+    }
+    .walk{
+    	width: 125px;
+    	height: 150px;
+    	margin-top: 20px;
+    	background: url(http://lsly1989.qiniudn.com/xxxasddbgfbwalk.jpg) left;
+    	-webkit-animation: anima 1s steps(16) infinite;
+    }
+    @-webkit-keyframes anima{
+    	from{background-position: 2000px 0;}
+    	to{background-position: 0px 0;}
+    }
+    .typing{
+    	margin-top: 20px;
+    	width: 250px;
+    	white-space: nowrap;
+    	overflow: hidden;
+    	-webkit-animation: type 3s steps(50,end); infinite;
+    	animation: type 3s steps(50,end) infinite;
+    }
+    @-webkit-keyframes type{
+    	from{width: 0;}
+    }
+    @keyframes type{
+    	from{width: 0;}
+    }
+</style>
+<body>
+	<div class="test"></div>
+	<div class="test1"></div>
+	<div class="test2"></div>
+	<div class="test3"></div>
+	<div class="test4"></div>
+	<div class="box"><div class="test5">test</div></div>
+	<div class="walk"></div>
+	<p class="typing">CSS3 timing-function steps</p>
+</body>
+</html>

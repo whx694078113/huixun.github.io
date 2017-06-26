@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+section{
+  border: solid 1px;
+}
+section section{
+  margin-left: 10px;
+  margin-top: 10px;
+  text-align: center;
+  width: 30%
+  border-radius: 20px;
+  height: 200px;
+}
+.parent{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 440px;
+  width: 100%;
+}
+.parent section:first-child{
+  height: 410px;
+}
+</style>
+<body>
+<section class="parent">
+  <section>A</section>
+  <section>B</section>
+  <section>C</section>
+  <section>D</section>
+  <section>E</section>
+</section>
+</body>
+</html>

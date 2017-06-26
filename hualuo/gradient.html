@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>渐变</title>
+</head>
+<style>
+.gradient{
+	width: 200px;
+	height: 200px;
+	background: radial-gradient(red, green, blue);
+	background: -webkit-radial-gradient(50% 50%,farthest-corner,red,green,blue);
+}
+.gradient1{
+	width: 200px;
+	height: 200px;
+	margin-top: 20px;
+	background: radial-gradient(circle,red,yellow,green);
+	background: -webkit-radial-gradient(circle,red,yellow,green);
+}
+.gradient2{
+	width: 200px;
+	height: 200px;
+	margin-top: 20px;
+	background: radial-gradient(60% 40%,farthest-side,blue ,green,yellow,black);
+	background: -webkit-radial-gradient(60% 40%,farthest-side,blue ,green,yellow,black);
+}
+.gradient3{
+	width: 200px;
+	height: 200px;
+	margin-top: 20px;
+	background: repeating-radial-gradient(red,yellow 10%,green 20%);
+	background: -webkit-repeating-radial-gradient(red,yellow 10%,green 20%);
+}
+.gradient4{
+	width: 200px;
+	height: 200px;
+	margin-top: 20px;
+	background: linear-gradient(to left,red , blue);
+	background: -webkit-linear-gradient(to left,red , blue);
+}
+.gradient5{
+	width: 200px;
+	height: 200px;
+	margin-top: 20px;
+	background: linear-gradient(to right bottom,red ,blue);
+	background: -webkit-linear-gradient(to right bottom,red ,blue);
+}
+</style>
+<body>
+	<div class="gradient"></div>
+	<div class="gradient1"></div>
+	<div class="gradient2"></div>
+	<div class="gradient3"></div>
+	<div class="gradient4"></div>
+	<div class="gradient5"></div>
+</body>
+</html>

@@ -529,12 +529,11 @@ select::-ms-expand {
 */
 .hoverclock {
     position: relative;
-    height: 410px;
-    width: 410px;
-    margin: 0px;
     border: 1px solid transparent;
     border-radius: 50%;
     display: none;
+    left: 50%;
+    margin: 5px 0 5px -100px;
 }
 
 .secondhovertree {
