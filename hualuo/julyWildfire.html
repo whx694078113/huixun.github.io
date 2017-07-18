@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<title>随笔纪录</title>
+</head>
+
+<body>
+    <h1 class="julyWildfire-h">七月流火，沉闷寂寂</h1>
+    <div class="julyWildfire-html">
+         <p class="julyWildfire-p">XHTML</p>
+         <ul class="julyWildfire-ul">
+             <li>XHTML是一个扮演类似HTML的角色的XML；</li>
+             <li>XHTML元素必须被正确的嵌套，必须小写，必须有一个根元素，属性名称必须小写，属性值</li>
+             <li>Html语法不严格，任你标签不闭合，标签错乱也能被解析。XHtml受xml语法约束</li>
+         </ul>
+
+         <p class="julyWildfire-p">各个浏览器的内核</p>
+         <ul class="julyWildfire-ul">
+             <li>Ie:trident内核</li>
+             <li>Firefox:gecko内核</li>
+             <li>Safari:webkit内核</li>
+             <li>Opera:blink内核</li>
+             <li>Chrome:blink内核</li>
+         </ul>
+
+         <p class="julyWildfire-p">语义化</p>
+         <ul class="julyWildfire-ul">
+             <li>每个标签都是自己的定义，根据内容选择合适的标签（代码语义化）</li>
+             <li>用户体验，语义化能更好的解释内容结构和代码结构</li>
+             <li>方便设备解析，便于团队开发</li>
+             <li>利于SEO和搜索引擎建立良好沟通，有助于排重抓去更多的有效信息</li>
+             <li>尽可能少的使用无语义标签div和span，语义不明显是可以使用p，p默认情况有上下间距</li>
+             <li>header：可以是网页或任意section的头部部分</li>
+             <li>footer：可以试试网页或者section的底部部分</li>
+             <li>hgroup：代表网页或者section的标题，当元素有多个层级时，该元素可以将h1到h6元素放在其内</li>
+             <li>nav：代表页面的导航链接区域</li>
+             <li>aside：元素被包含在actricle元素中作为主要内容的复数信息部分，其中的内容是与当前文章有关的相关资料，标签，名词解释等</li>
+             <li>secion：代表文档中的节或段段：指的是一篇文章里面按照主题的分段；节：是指一个页面里面的分组</li>
+             <li>acticle：代表一个文档，页面或者网站自成一体的内容，目的是为了让开发者独立开发或重用。</li>
+         </ul>
+         <p class="julyWildfire-p">SEO</p>
+         <ul class="julyWildfire-ul">
+             <li>SEO搜索引擎花，概括来说就是分析搜索引擎的网站收录以及评价规律，来对网站的结构，内容以及其他因素做出一些合理调整，是的网站更容易被搜索引擎收录，并且能够尽量牌子搜索引擎自然排名的前列</li>
+             <li>SEO实践总结：关键字，w3c标准，PR值，对域名的要求，关键内容放在前端，注意内链，</li>
+             <li>发现某一个链接--下载这一个网页--加入到临时库--提取网页中的连接--在下载网页--循环</li>
+         </ul>
+
+         <p class="julyWildfire-p">为什么利用多个域名存储网站</p>
+         <ul class="julyWildfire-ul">
+            <li>cdn缓存更方便</li>
+            <li>突破浏览器并发限制</li>
+            <li>节约cookie带宽</li>
+            <li>节约域名的连接数</li>
+            <li>防止不必要的安全问题</li>
+         </ul>
+
+         <p class="julyWildfire-p">Cookie</p>
+         <ul class="julyWildfire-ul">
+            <li>cookie是一段文本信息伴随着用户请求和页面在web服务器和浏览器之间传递，cookie包含每次用户访问站点时Web应用程序都可以读取的信息</li>
+            <li>http协议是无状态的，对于一个浏览器发出的多次请求，web服务器无法区分是不是来源与同一个浏览器。所以需要额外的数据用于维护会话。cookie正是这样的一段随http请求一起呗传递的额外数据</li>
+            <li>cookie只是一段文本，所以只能保存字符串，而且浏览器对它有大小限制以及它会随着每次请求发送到服务器，所以应该保证它不要太大。cookie的内容也是明文保存的有些浏览器提供页面修改，所以不适合保存重要的或者涉及隐私的内容</li>
+            <li>cookie大多数浏览器支持最大为4096字节的cookie，由于限制了cookie的大小，最好用cookie来存储少量数据，或者存储用户id之类的标识符</li>
+         </ul>
+    </div>
+
+    <div class="julyWildfire-css">
+         <p class="julyWildfire-p">rgba和opacity的区别</p>
+         <ul class="julyWildfire-ul">
+             <li>rgba:用于元素的颜色或背景色的透明度</li>
+             <li>opacity:作用于元素其全部内容透明度</li>
+         </ul>
+
+         <p class="julyWildfire-p">dispaly:none和visibility:hidden的区别</p>
+         <ul class="julyWildfire-ul">
+             <li>dispaly隐藏元素但不生成元素空间</li>
+             <li>visibility:隐藏元素且钙元素的空间还在</li>
+         </ul>
+
+         <p class="julyWildfire-p">图片格式</p>
+         <ul class="julyWildfire-ul">
+             <li>png,jpg,svg,jpe</li>
+             <li>webP一种加快图片加载速度的图片格式，体积大约只有JPE的2/3，节省大量的带宽资源和数据空间</li>
+         </ul>
+         
+         <p class="julyWildfire-p">懒加载</p>
+         <div class="julyWildfire-ul demo">
+             <img src="../images/blank.gif" alt="" data-echo="../images/malaixiyaMIFI.jpg">
+             <img src="../images/blank.gif" alt="" data-echo="../images/aodaliyaMIFI.jpg">
+             <img src="../images/blank.gif" alt="" data-echo="../images/yinniMIFI.jpg">
+             <img src="../images/blank.gif" alt="" data-echo="../images/feilvbingMIFI.jpg">
+         </div>
+
+         <p class="julyWildfire-p">幻灯片</p>
+         <div class="julyWildfire-ul julyWildfire-ani"></div>
+
+    </div>
+
+
+	</div>
+    <script src="../js/echo.main.js"></script>
+</body>
+</html>
+<script>
+Echo.init({
+    offset: 0,
+    throttle: 0
+});
+</script>
